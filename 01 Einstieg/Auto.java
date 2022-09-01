@@ -6,9 +6,6 @@ public class Auto {
     private String kennzeichen;
     
     // Funktionen
-    // f(x) = 2 * x
-    // f(2) = 4
-
     public void hupe() {
         System.out.println(kennzeichen + " Huuuuuuuuuuuup!");
     }
@@ -31,9 +28,13 @@ public class Auto {
     }
     
     public void druckeSchild() {
-        System.out.println("Kennzeichen: " + kennzeichen);
-        System.out.println("Marke: " + marke);
-        System.out.println("Modell: " + modell);
-        System.out.println("Farbe: " + farbe);
+        System.out.println("############ Zu Verkaufen ###############");
+        System.out.println("# Kennzeichen: " + kennzeichen);
+        System.out.println("# Marke: " + marke);
+        System.out.println("# Modell: " + modell);
+        System.out.println("# Farbe: " + farbe);
+        System.out.println("#########################################");
+        System.out.println();
+        
     }
 }
