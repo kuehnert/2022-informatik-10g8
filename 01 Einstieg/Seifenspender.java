@@ -56,8 +56,10 @@ public class Seifenspender {
     }
 
     public void setFuellmenge(int menge) {
-        // wenn die <menge> nicht zu groß ist...
-        if (menge <= kapazitaet) {
+        if (menge < 0) {
+            System.out.println("FEHLER: Menge muss positiv sein");
+        } else if (menge <= kapazitaet) {
+            // wenn die <menge> nicht zu groß ist...
             // setze <fuellmenge> auf <menge>
             fuellmenge = menge;
         } else {
@@ -66,7 +68,6 @@ public class Seifenspender {
 
         System.out.println("Fuellmenge ist jetzt " 
             + fuellmenge + " ml");
-
-        // TODO: Verhindere negative <menge>
     }
 }
+

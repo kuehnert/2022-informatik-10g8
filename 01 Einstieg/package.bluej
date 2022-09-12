@@ -2,9 +2,9 @@
 dependency1.from=Autohaendler
 dependency1.to=Auto
 dependency1.type=UsesDependency
-editor.fx.0.height=1080
-editor.fx.0.width=962
-editor.fx.0.x=2880
+editor.fx.0.height=0
+editor.fx.0.width=0
+editor.fx.0.x=0
 editor.fx.0.y=0
 objectbench.height=154
 objectbench.width=920
