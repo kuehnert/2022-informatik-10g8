@@ -43,6 +43,8 @@ public class Seifenspender {
 
     public void einschalten() {
         eingeschaltet = true;        
+        System.out.print("... Boah ... Stoehnn ... ");
+        schlafe(5); // pausiere 5 Sekunden
         System.out.println("Seifenspender ist EINgeschaltet!");
     }
 
@@ -68,6 +70,12 @@ public class Seifenspender {
 
         System.out.println("Fuellmenge ist jetzt " 
             + fuellmenge + " ml");
+    }
+
+    private void schlafe(int sek) {
+        try {
+            Thread.sleep(1000 * sek);
+        } catch (Exception e) {}
     }
 }
 
