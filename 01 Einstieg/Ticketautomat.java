@@ -14,14 +14,14 @@ public class Ticketautomat {
         restbetrag = 0;
         ticketanzahl = -1;
     }
-    
+
     public void bestimmeAnzahl() {
         System.out.print("Wie viele Tickets? ");
         // Lies eine Zeichenkette über Tastatur ein und
         // speichere sie in <eingabe>
         String eingabe = tastatur.nextLine();
         System.out.println("Deine Eingabe: '" + eingabe + "'");
-        
+
         // Wandle die Zeichenkette <eingabe> in eine
         // Ganzzahl um und speichere sie in <ticketanzahl>
         ticketanzahl = Integer.parseInt(eingabe);
@@ -34,28 +34,37 @@ public class Ticketautomat {
         // FALSCH: ticketpreis * ticketanzahl = restbetrag;
         // RICHTIG:
         restbetrag = ticketpreis * ticketanzahl;
-        System.out.println("Es fehlen: " + restbetrag + " €");
-        
-        // 2. Lies über Tastatur ein Geldstueck ein
-        //    und ziehe das vom <restbetrag> ab
-        System.out.print("Wirf einen Betrag ein: ");
-        String eingabe = tastatur.nextLine();
-        int geldstueck = Integer.parseInt(eingabe);
-        restbetrag = restbetrag - geldstueck;
-        
-        System.out.println("Es fehlen: " + restbetrag + " €");
 
-        // 3. ???
+        while (restbetrag > 0) {
+            System.out.println("Es fehlen: " + restbetrag + " €");
+
+            // 2. Lies über Tastatur ein Geldstueck ein
+            //    und ziehe das vom <restbetrag> ab
+            System.out.print("Wirf einen Betrag ein: ");
+            String eingabe = tastatur.nextLine();
+            int geldstueck = Integer.parseInt(eingabe);
+            restbetrag = restbetrag - geldstueck;
+        }
+        
+        System.out.println("Ich habe genug Geld: " + restbetrag+" €");
     }
 
     public void gibWechselgeld() {
-
+        // Gib nur W'geld, wenn notwendig
+        if (restbetrag < 0) {
+            System.out.println("Du bekommst zurück: " + (-restbetrag) + " €");
+            restbetrag = 0;
+        }
     }
-    
+
     public void druckeTicket() {
+        // MACHEN SIE DAS HUEBSCH
+        System.out.println("Hier ist ein Ticket!");
     }
 
     public void druckeTickets() {
+        // TODO: Drucke die richtige Anzahl von Tickets
+        druckeTicket();
     }
 
     public void begruesse() {
@@ -64,13 +73,15 @@ public class Ticketautomat {
         System.out.println("❤---------------------------👍");
         System.out.println("Ein Ticket kostet "+ticketpreis+"€.");
     }
-    
+
     public void druckeMenu() {
         begruesse();
         bestimmeAnzahl();
         einzahlen();
         gibWechselgeld();
         druckeTickets();
+        System.out.println("Nächster Kunde bitte!");
+        System.out.println("----------------------------\n\n");
     }
 
     public void druckeStatus() {
