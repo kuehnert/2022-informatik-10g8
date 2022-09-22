@@ -52,18 +52,20 @@ public class Ticketautomat {
     public void gibWechselgeld() {
         // Gib nur W'geld, wenn notwendig
         if (restbetrag < 0) {
+            // TODO 3: Gib eine sinnvolle Stueckelung an
+            // 17€ => 10€ + 5€ + 2€
             System.out.println("Du bekommst zurück: " + (-restbetrag) + " €");
             restbetrag = 0;
         }
     }
 
     public void druckeTicket() {
-        // MACHEN SIE DAS HUEBSCH
+        // TODO 1: MACHEN SIE DAS HUEBSCH
         System.out.println("Hier ist ein Ticket!");
     }
 
     public void druckeTickets() {
-        // TODO: Drucke die richtige Anzahl von Tickets
+        // TODO 2: Drucke die richtige Anzahl von Tickets
         druckeTicket();
     }
 
