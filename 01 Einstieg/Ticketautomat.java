@@ -54,6 +54,8 @@ public class Ticketautomat {
         if (restbetrag < 0) {
             // TODO 3: Gib eine sinnvolle Stueckelung an
             // 17€ => 10€ + 5€ + 2€
+            // Tipp: Arbeiten Sie erst nur mit 1€, 2€ und 5€
+            // Stuecken. 
             System.out.println("Du bekommst zurück: " + (-restbetrag) + " €");
             restbetrag = 0;
         }
@@ -66,6 +68,10 @@ public class Ticketautomat {
 
     public void druckeTickets() {
         // TODO 2: Drucke die richtige Anzahl von Tickets
+        // Idee: Drucke so lange jeweils ein Ticket,
+        // solange die <ticketanzahl> größer 0 ist
+        // Für jedes gedruckte Ticket ziehe 1 von
+        // <ticketanzahl> ab.
         druckeTicket();
     }
 
