@@ -1,3 +1,5 @@
+// Lustige Schriftarten: 
+// https://www.fontspace.com/font-generator
 import java.util.Scanner;
 
 public class Ticketautomat {
@@ -45,25 +47,39 @@ public class Ticketautomat {
             int geldstueck = Integer.parseInt(eingabe);
             restbetrag = restbetrag - geldstueck;
         }
-        
+
         System.out.println("Ich habe genug Geld: " + restbetrag+" €");
     }
 
     public void gibWechselgeld() {
         // Gib nur W'geld, wenn notwendig
-        if (restbetrag < 0) {
-            // TODO 3: Gib eine sinnvolle Stueckelung an
-            // 17€ => 10€ + 5€ + 2€
-            // Tipp: Arbeiten Sie erst nur mit 1€, 2€ und 5€
-            // Stuecken. 
-            System.out.println("Du bekommst zurück: " + (-restbetrag) + " €");
-            restbetrag = 0;
-        }
-    }
+        // TODO 3: Gib eine sinnvolle Stueckelung an
+        // 17€ => 10€ + 5€ + 2€
+        // Tipp: Arbeiten Sie erst nur mit 1€, 2€ und 5€
+        // Stuecken. 
+        System.out.println("Rueckgeld: " + (-restbetrag) + " €");
 
-    public void druckeTicket() {
-        // TODO 1: MACHEN SIE DAS HUEBSCH
-        System.out.println("Hier ist ein Ticket!");
+        while (restbetrag <= -10) {
+            System.out.println("Hier sind 10€");
+            restbetrag = restbetrag + 10;
+        }
+
+        // Kann nur einen geben
+        if (restbetrag <= -5) {
+            System.out.println("Hier sind 5€");
+            restbetrag = restbetrag + 5;
+        }
+
+        while (restbetrag <= -2) {
+            System.out.println("Hier sind 2€");
+            restbetrag = restbetrag + 2;
+        }
+
+        // Kann nur einen geben
+        if (restbetrag < 0) {
+            System.out.println("Hier ist 1€");
+            restbetrag = restbetrag + 1;
+        }
     }
 
     public void druckeTickets() {
@@ -72,7 +88,11 @@ public class Ticketautomat {
         // solange die <ticketanzahl> größer 0 ist
         // Für jedes gedruckte Ticket ziehe 1 von
         // <ticketanzahl> ab.
-        druckeTicket();
+
+        while (ticketanzahl > 0) {
+            druckeTicket();
+            ticketanzahl = ticketanzahl - 1;
+        }        
     }
 
     public void begruesse() {
@@ -98,5 +118,32 @@ public class Ticketautomat {
 
     public void bestimmeAnzahl(int neueAnzahl) {
 
+    }
+
+    public void druckeTicket() {
+        // TODO 1: MACHEN SIE DAS HUEBSCH
+        System.out.println("                     ,---.           ,---.");
+        System.out.println("                    / /'`.\\.--'''--./,''\\ \\");
+        System.out.println("                    \\ \\    _       _    / /");
+        System.out.println("                     `./  / __   __ \\  \\,'");
+        System.out.println("                      /    /_O)_(_O\\    \\");
+        System.out.println("                      |  .-'  ___  `-.  |");
+        System.out.println("                   .--|       \\_/       |--.");
+        System.out.println("                 ,'    \\   \\   |   /   /    `.");
+        System.out.println("                /       `.  `--^--'  ,'       \\");
+        System.out.println("             .-'''''-.    `--.___.--'     .-'''''-.");
+        System.out.println(".-----------/         \\------------------/         \\--------------.");
+        System.out.println("| .---------\\         /----------------- \\         /------------. |");
+        System.out.println("| |          `-`--`--'                    `--'--'-'             | |");
+        System.out.println("| |       _____                 . . . . . o o o o o             | |");
+        System.out.println("| |      __|[_]|__ ___________ _______    ____      o           | |");
+        System.out.println("| |     |[] [] []| [] [] [] [] [_____(__  ][]]_n_n__][.         | |");
+        System.out.println("| |    _|________|_[_________]_[________]_|__|________)<        | |");
+        System.out.println("| |      oo    oo 'oo      oo ' oo    oo 'oo 0000---oo\\_        | |");
+        System.out.println("| |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  | |");
+        System.out.println("| |           𝕿𝖎𝖈𝖐𝖊𝖙 𝖋𝖚𝖊𝖗 𝖉𝖊𝖓 𝕸𝖔𝖓𝖘𝖙𝖊𝖗𝖟𝖚g                            | |");
+        System.out.println("| |_____________________________________________________________| |");
+        System.out.println("|_________________________________________________________________|");
+        System.out.println("\n\n");    
     }
 }
