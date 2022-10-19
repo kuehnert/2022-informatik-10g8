@@ -5,15 +5,15 @@ import java.util.Scanner;
 public class Ticketautomat {
     // Daten
     private Scanner tastatur;
-    private int ticketpreis;
-    private int restbetrag;
-    private int ticketanzahl;
+    private double ticketpreis; // Kommazahl 
+    private double restbetrag;
+    private int ticketanzahl; // Ganzzahl
     private boolean eingeschaltet;
 
     // Funktionen
     public Ticketautomat() {
         tastatur = new Scanner(System.in);
-        ticketpreis = 2;
+        ticketpreis = 3.80;
         restbetrag = 0;
         ticketanzahl = -1;
         eingeschaltet = true;
@@ -108,10 +108,12 @@ public class Ticketautomat {
     }
 
     private void begruesse() {
+        String preisString = String.format("%.2f", ticketpreis);
+        
         System.out.println("❤---------------------------👍");
         System.out.println("Willkommen bei Lauras Reisen");
         System.out.println("❤---------------------------👍");
-        System.out.println("Ein Ticket kostet " + ticketpreis+"€.");
+        System.out.println("Ein Ticket kostet " + preisString + " €.");
     }
 
     public void druckeMenu() {
