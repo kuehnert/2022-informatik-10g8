@@ -8,6 +8,7 @@ public class Ticketautomat {
     private int ticketpreis;
     private int restbetrag;
     private int ticketanzahl;
+    private boolean eingeschaltet;
 
     // Funktionen
     public Ticketautomat() {
@@ -15,9 +16,10 @@ public class Ticketautomat {
         ticketpreis = 2;
         restbetrag = 0;
         ticketanzahl = -1;
+        eingeschaltet = true;
     }
 
-    public void bestimmeAnzahl() {
+    private void bestimmeAnzahl() {
         System.out.print("Wie viele Tickets? ");
         // Lies eine Zeichenkette über Tastatur ein und
         // speichere sie in <eingabe>
@@ -30,7 +32,7 @@ public class Ticketautomat {
         System.out.println("Du willst: " + ticketanzahl + " Tickets");
     }
 
-    public void einzahlen() {
+    private void einzahlen() {
         // 1. Rechne aus, wie viel der Kunde bezahlen muss
         //    und speichere das in <restbetrag>
         // FALSCH: ticketpreis * ticketanzahl = restbetrag;
@@ -45,13 +47,23 @@ public class Ticketautomat {
             System.out.print("Wirf einen Betrag ein: ");
             String eingabe = tastatur.nextLine();
             int geldstueck = Integer.parseInt(eingabe);
-            restbetrag = restbetrag - geldstueck;
+
+            // Und-Operator: a && b => a UND b
+            // Oder-Operator: a || b => a ODER b 
+            if (geldstueck == 1 || geldstueck == 2 
+            || geldstueck == 5 || geldstueck == 10
+            || geldstueck == 20|| geldstueck == 50
+            ) {
+                restbetrag = restbetrag - geldstueck;
+            } else {
+                System.out.println("Ungueltiges Zahlungsmittel.");
+            }
         }
 
-        System.out.println("Ich habe genug Geld: " + restbetrag+" €");
+        System.out.println("Ich habe genug Geld: " + (-restbetrag) + " €");
     }
 
-    public void gibWechselgeld() {
+    private void gibWechselgeld() {
         // Gib nur W'geld, wenn notwendig
         // TODO 3: Gib eine sinnvolle Stueckelung an
         // 17€ => 10€ + 5€ + 2€
@@ -82,7 +94,7 @@ public class Ticketautomat {
         }
     }
 
-    public void druckeTickets() {
+    private void druckeTickets() {
         // TODO 2: Drucke die richtige Anzahl von Tickets
         // Idee: Drucke so lange jeweils ein Ticket,
         // solange die <ticketanzahl> größer 0 ist
@@ -95,33 +107,37 @@ public class Ticketautomat {
         }        
     }
 
-    public void begruesse() {
+    private void begruesse() {
         System.out.println("❤---------------------------👍");
         System.out.println("Willkommen bei Lauras Reisen");
         System.out.println("❤---------------------------👍");
-        System.out.println("Ein Ticket kostet "+ticketpreis+"€.");
+        System.out.println("Ein Ticket kostet " + ticketpreis+"€.");
     }
 
     public void druckeMenu() {
-        begruesse();
-        bestimmeAnzahl();
-        einzahlen();
-        gibWechselgeld();
-        druckeTickets();
-        System.out.println("Nächster Kunde bitte!");
-        System.out.println("----------------------------\n\n");
+        while (eingeschaltet) {
+            begruesse();
+            bestimmeAnzahl();
+            einzahlen();
+            gibWechselgeld();
+            druckeTickets();
+            
+            // Aufgabe: Fragen Sie ob es weitere Kunden gibt
+            // Bei Eingabe von "1": Beginne von vorne
+            // Bei "2": Beende das Programm
+            System.out.println("Gibt es weitere Kunden (1 für ja)?");
+            String antwort = tastatur.nextLine();
+            int antwortZahl = Integer.parseInt(antwort);
+            
+            if (antwortZahl == 1) { 
+                System.out.println("----------------------------\n\n");
+            } else {
+                eingeschaltet = false;
+            }
+        }
     }
-
-    public void druckeStatus() {
-
-    }
-
-    public void bestimmeAnzahl(int neueAnzahl) {
-
-    }
-
-    public void druckeTicket() {
-        // TODO 1: MACHEN SIE DAS HUEBSCH
+    
+    private void druckeTicket() {
         System.out.println("                     ,---.           ,---.");
         System.out.println("                    / /'`.\\.--'''--./,''\\ \\");
         System.out.println("                    \\ \\    _       _    / /");
