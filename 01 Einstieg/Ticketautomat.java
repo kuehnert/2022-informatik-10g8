@@ -13,7 +13,7 @@ public class Ticketautomat {
     // Funktionen
     public Ticketautomat() {
         tastatur = new Scanner(System.in);
-        ticketpreis = 3.80;
+        ticketpreis = 3.75;
         restbetrag = 0;
         ticketanzahl = -1;
         eingeschaltet = true;
@@ -40,7 +40,8 @@ public class Ticketautomat {
         restbetrag = ticketpreis * ticketanzahl;
 
         while (restbetrag > 0) {
-            System.out.println("Es fehlen: " + restbetrag + " €");
+            String rbs = String.format("%.2f", restbetrag);
+            System.out.println("Es fehlen: " + rbs + " €");
 
             // 2. Lies über Tastatur ein Geldstueck ein
             //    und ziehe das vom <restbetrag> ab
@@ -69,7 +70,8 @@ public class Ticketautomat {
         // 17€ => 10€ + 5€ + 2€
         // Tipp: Arbeiten Sie erst nur mit 1€, 2€ und 5€
         // Stuecken. 
-        System.out.println("Rueckgeld: " + (-restbetrag) + " €");
+        String rbs = String.format("%.2f", -restbetrag);
+        System.out.println("Rueckgeld: " + rbs + " €");
 
         while (restbetrag <= -10) {
             System.out.println("Hier sind 10€");
@@ -88,9 +90,29 @@ public class Ticketautomat {
         }
 
         // Kann nur einen geben
-        if (restbetrag < 0) {
+        if (restbetrag <= -1.0) {
             System.out.println("Hier ist 1€");
             restbetrag = restbetrag + 1;
+        }
+        
+        if (restbetrag <= -0.5) {
+            System.out.println("Hier sind 50 Cent");
+            restbetrag = restbetrag + 0.5;
+        }
+        
+        while (restbetrag <= -0.2) {
+            System.out.println("Hier sind 20 Cent");
+            restbetrag = restbetrag + 0.2;
+        }
+        
+        if (restbetrag <= -0.1) {
+            System.out.println("Hier sind 10 Cent");
+            restbetrag = restbetrag + 0.1;
+        }
+        
+        if (restbetrag <= -0.05) {
+            System.out.println("Hier sind 5 Cent");
+            restbetrag = restbetrag + 0.05;
         }
     }
 
@@ -140,6 +162,8 @@ public class Ticketautomat {
     }
     
     private void druckeTicket() {
+        System.out.println("1x 𝕿𝖎𝖈𝖐𝖊𝖙 𝖋𝖚𝖊𝖗 𝖉𝖊𝖓 𝕸𝖔𝖓𝖘𝖙𝖊𝖗𝖟𝖚g");
+        /*
         System.out.println("                     ,---.           ,---.");
         System.out.println("                    / /'`.\\.--'''--./,''\\ \\");
         System.out.println("                    \\ \\    _       _    / /");
@@ -163,5 +187,6 @@ public class Ticketautomat {
         System.out.println("| |_____________________________________________________________| |");
         System.out.println("|_________________________________________________________________|");
         System.out.println("\n\n");    
+        */
     }
 }
