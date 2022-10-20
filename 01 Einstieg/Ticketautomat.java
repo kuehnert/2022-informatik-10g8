@@ -47,7 +47,11 @@ public class Ticketautomat {
             //    und ziehe das vom <restbetrag> ab
             System.out.print("Wirf einen Betrag ein: ");
             String eingabe = tastatur.nextLine();
+            //************************************
+            // TODO: Hier brauchen wir
+            // double geldstueck = Double.parseDouble(eingabe);
             int geldstueck = Integer.parseInt(eingabe);
+            //************************************
 
             // Und-Operator: a && b => a UND b
             // Oder-Operator: a || b => a ODER b 
@@ -109,8 +113,8 @@ public class Ticketautomat {
             System.out.println("Hier sind 10 Cent");
             restbetrag = restbetrag + 0.1;
         }
-        
-        if (restbetrag <= -0.05) {
+
+        if (Math.round(restbetrag*100) <= 0.05*100) {
             System.out.println("Hier sind 5 Cent");
             restbetrag = restbetrag + 0.05;
         }
