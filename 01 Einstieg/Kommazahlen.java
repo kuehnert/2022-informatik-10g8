@@ -77,38 +77,4 @@ public class Kommazahlen {
         double summe = zahl1 + zahl2;
         System.out.printf("%.2f + %.2f = %.2f %n", zahl1, zahl2, summe);
     }   
-
-    public static void weltbevoelkerung() {
-        double wbv = 7.837;
-        // Wachstumsrate von 0,9% 
-        double faktor = 1.009;
-
-        System.out.printf("Weltbevoelkerung im Jahr 2021: %.2f%n", wbv);
-
-        wbv = wbv * faktor;
-        System.out.printf("Weltbevoelkerung im Jahr 2022: %.2f%n", wbv);
-
-        wbv = wbv * faktor;
-        System.out.printf("Weltbevoelkerung im Jahr 2023: %.2f%n", wbv);
-
-        wbv = wbv * faktor;
-        System.out.printf("Weltbevoelkerung im Jahr 2024: %.2f%n", wbv);
-
-        wbv = wbv * faktor;
-        System.out.printf("Weltbevoelkerung im Jahr 2025: %.2f%n", wbv);
-
-        wbv = wbv * faktor;
-        System.out.printf("Weltbevoelkerung im Jahr 2026: %.2f%n", wbv);
-
-        wbv = wbv * faktor;
-        System.out.printf("Weltbevoelkerung im Jahr 2027: %.2f%n", wbv);
-
-        wbv = wbv * faktor;
-        System.out.printf("Weltbevoelkerung im Jahr 2028: %.2f%n", wbv);
-
-        wbv = wbv * faktor;
-        System.out.printf("Weltbevoelkerung im Jahr 2029: %.2f%n", wbv);
-    }
-
-
 }
