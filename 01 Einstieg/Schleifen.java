@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Schleifen {
     public static void weltbevoelkerung() {
         int jahr = 2021;
@@ -54,15 +56,41 @@ public class Schleifen {
     // Wenn die Zahl gerade ist, teile sie durch 2
     // Ist sie ungerade, multipliziere sie mit 3 und addiere 1
     // Mache das so lange, bis die Variable den Wert 1 hat
+    // - Lies die Zahl vom Benutzer ein
     // - Gib aus, wie viele Schritte dafür notwendig sind
     // - Mache das für alle Zahlen von 1 bis 100
-    public static void aufgabe4() {
-        int zahl = 300;
-        boolean gerade = zahl % 2 == 0;
-        if (gerade) {
-            System.out.println("Gerade");
-        } else {
-            System.out.println("Ungerade");
+    public static void aufgabe4Eingabe() {
+        Scanner tastatur = new Scanner(System.in);
+        System.out.println("Zahl zw. 1 und 100: ");
+        int benutzerzahl = tastatur.nextInt();
+        
+        aufgabe4(benutzerzahl);
+    }
+    
+    public static void aufgabe4Alle() {
+        // HA: while () {...}
+        aufgabe4(1);
+        aufgabe4(2);
+        aufgabe4(3);
+        aufgabe4(4);
+        aufgabe4(5);
+        // ...
+        aufgabe4(100);
+    }
+    
+    public static void aufgabe4(int zahl) {
+        System.out.print("Zahl: " + zahl);
+
+        while (zahl > 1) {
+            if (zahl / 2 * 2 == zahl) { // gerade
+                zahl = zahl / 2;
+            } else { // ungerade
+                zahl = zahl * 3 + 1;
+            }
+
+            System.out.print(zahl + ", ");
         }
+        
+        System.out.println();
     }
 }
