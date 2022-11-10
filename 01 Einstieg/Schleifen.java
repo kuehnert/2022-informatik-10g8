@@ -63,23 +63,35 @@ public class Schleifen {
         Scanner tastatur = new Scanner(System.in);
         System.out.println("Zahl zw. 1 und 100: ");
         int benutzerzahl = tastatur.nextInt();
-        
+
         aufgabe4(benutzerzahl);
     }
-    
+
     public static void aufgabe4Alle() {
-        // HA: while () {...}
-        aufgabe4(1);
-        aufgabe4(2);
-        aufgabe4(3);
-        aufgabe4(4);
-        aufgabe4(5);
-        // ...
-        aufgabe4(100);
+        // HA 10.11.22:
+        // Merke Dir, wo die meisten Schritte benötigt werden
+        int zaehler = 1; // AL
+
+        while (zaehler < 100) {
+            int steps = aufgabe4(zaehler);
+            System.out.println(zaehler + ": " + steps);
+            zaehler = zaehler + 1; // AL
+        }
     }
-    
-    public static void aufgabe4(int zahl) {
-        System.out.print("Zahl: " + zahl);
+
+    public static void aufgabe4Alle2() {
+        int zaehler = 1; // AL
+
+        while (zaehler <= 20000) {
+            aufgabe4(zaehler);
+            zaehler = zaehler + 1; // AL
+        }
+    }
+
+    public static int aufgabe4(int zahl) {
+        int schritte; // Deklariert
+        schritte = 0; // Initialisierung
+        // System.out.print("Zahl: " + zahl);
 
         while (zahl > 1) {
             if (zahl / 2 * 2 == zahl) { // gerade
@@ -88,9 +100,11 @@ public class Schleifen {
                 zahl = zahl * 3 + 1;
             }
 
-            System.out.print(zahl + ", ");
+            schritte = schritte + 1;
+            // System.out.print(", " + zahl);
         }
-        
-        System.out.println();
+
+        // System.out.println(" (" + schritte + " Schritte)");
+        return schritte;
     }
 }
