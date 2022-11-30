@@ -14,4 +14,6 @@ public class Klausuruebung {
     
     // Aufgabe: Gib alle Quadratzahlen aus, die zwischen
     // 3000 und 4000 sind
+    
+    
 }
