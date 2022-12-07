@@ -77,4 +77,30 @@ public class Kommazahlen {
         double summe = zahl1 + zahl2;
         System.out.printf("%.2f + %.2f = %.2f %n", zahl1, zahl2, summe);
     }   
+
+    public static void annaeherung() {
+        int vorzeichen = +4;
+        int nenner = 1;
+        double altesGerundet = 0.0;
+        double wert = 0.0;
+
+        // Endlosschleife
+        while (true) {
+            wert = wert + (double) vorzeichen / nenner;
+
+            // wenn die ersten 5 Stellen von wert und alterWert
+            // gleich sind, sind wir fertig
+            double gerundet = Math.floor(wert*100_000);
+            if (gerundet == altesGerundet) {
+                // fertig, beende die Schleife
+                break;
+            }
+
+            altesGerundet = gerundet;
+            nenner = nenner + 2;
+            vorzeichen = -1 * vorzeichen;
+        }
+
+        System.out.printf("Nenner %d: %.5f", nenner, wert);
+    }
 }
