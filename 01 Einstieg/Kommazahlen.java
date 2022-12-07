@@ -79,28 +79,16 @@ public class Kommazahlen {
     }   
 
     public static void annaeherung() {
-        int vorzeichen = +4;
         int nenner = 1;
-        double altesGerundet = 0.0;
-        double wert = 0.0;
-
-        // Endlosschleife
-        while (true) {
-            wert = wert + (double) vorzeichen / nenner;
-
-            // wenn die ersten 5 Stellen von wert und alterWert
-            // gleich sind, sind wir fertig
-            double gerundet = Math.floor(wert*100_000);
-            if (gerundet == altesGerundet) {
-                // fertig, beende die Schleife
-                break;
-            }
-
-            altesGerundet = gerundet;
+        int vorzeichen = 1;
+        double summe = 0;
+        
+        while (nenner <= 1197) {
+            summe = summe + 4.0 * vorzeichen / nenner;
+            System.out.println(summe);
+            
+            vorzeichen = -vorzeichen;
             nenner = nenner + 2;
-            vorzeichen = -1 * vorzeichen;
         }
-
-        System.out.printf("Nenner %d: %.5f", nenner, wert);
     }
 }
