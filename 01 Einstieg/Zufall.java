@@ -39,12 +39,22 @@ public class Zufall {
     
     // Programmieren Sie folgende Würfel:
     public void wuerfeln() {
-        // a) ein 20-seitiger Würfel (1-20)
+        // -) ein 20-seitiger Würfel (0-19)
+        int r1 = wuerfel.nextInt(20);
         
+        // a) ein 20-seitiger Würfel (1-20)
+        int r2 = wuerfel.nextInt(20) + 1;
         
         // b) ein Würfel von -10 bis +10 (einschliesslich)
+        // Wieviele unterschiedliche Werte sind das?
+        int r3 = wuerfel.nextInt(21) - 10;
+        
         // c) ein Würfel von -10 bis +20 (einschliesslich)
+        int r4 = wuerfel.nextInt(31) - 10;
+
         // d) zwei Sechseitige Würfel (2-12) Vorsicht!
+        int r5 = wuerfel.nextInt(6) + wuerfel.nextInt(6) + 2;
+        
         // e) drei sechsseitige Würfel (3-18) Vorsicht!
     }
     
