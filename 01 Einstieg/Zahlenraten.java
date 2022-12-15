@@ -19,11 +19,11 @@ public class Zahlenraten {
         // Aeussere Schleife zaehlt Partien
         do {
             int zufallszahl = generator.nextInt(100) + 1;
-            int geraten = 1;
+            int geraten;
             int versuche = 0;
 
             // Innere Schleife laeuft bis Zahl geraten wurde
-            while (zufallszahl != geraten) {
+            do {
                 System.out.print("Rate meine Zahl: ");
                 geraten = tastatur.nextInt();
                 versuche = versuche + 1;
@@ -35,7 +35,7 @@ public class Zahlenraten {
                 } else if (zufallszahl == geraten) {
                     System.out.println("Hurra, Du hast sie geraten! ");
                 }
-            }
+            } while (zufallszahl != geraten);
 
             System.out.printf("Du hast %d geraten. ", versuche);
             if (versuche <= 5) {
