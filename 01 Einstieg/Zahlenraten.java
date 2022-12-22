@@ -50,4 +50,46 @@ public class Zahlenraten {
             weiter = tastatur.nextInt();
         } while (weiter == 1);
     }
+    
+    public void ratenUmgekehrt() {
+        int unten = 1;
+        int oben = 1000;
+        int eingabe;
+        int versuche = 0;
+        
+        System.out.println("\n\nWillkommen beim Zahlenraten");
+        System.out.println("Denk Dir eine Zahl zwischen "
+            + unten + " und " + oben + ".");
+        
+        // Rate solange, wie Du die Zahl noch nicht geraten hast
+        do {
+            int mitte = (oben + unten) / 2;
+            System.out.print(mitte + "? (1=richtig, "
+                + "2=Deine Zahl ist kleiner, " 
+                + "3=groesser): ");
+            eingabe = tastatur.nextInt();
+            versuche = versuche + 1;
+            
+            if (eingabe == 2) {
+                // Benutzerzahl ist kleiner
+                // Setze obere Grenze auf mitte - 1
+                // da mitte nicht richtig sein kann
+                oben = mitte - 1;
+            } else if (eingabe == 3) {
+                unten = mitte + 1;
+            }
+        } while (eingabe != 1);
+        // Benutzer hat die Zahl geraten
+                
+        System.out.println("Hurra! Ich bin so schlau");
+        System.out.println(versuche + " Versuche habe ich gebraucht");
+    }
+    
+    
+    
+    
+    
+    
+    
+    
 }
