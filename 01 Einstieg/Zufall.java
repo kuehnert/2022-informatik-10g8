@@ -63,7 +63,7 @@ public class Zufall {
     // 2. Anzahlen als Prozente ausgeben
     public void wuerfelQualitaet() {
         System.out.println("wuerfelQualitaet");
-        int WUERFE = 100_000_000;
+        int WUERFE = 1_000_000;
         
         // Würfeln Sie WUERFE Mal und 
         // 1) Geben Sie die gewürfelten Zahlen aus
@@ -105,12 +105,19 @@ public class Zufall {
         double p5 = 100.0 * a5 / WUERFE;
         double p6 = 100.0 * a6 / WUERFE;
         
-        System.out.println("1: " + a1 + " (" + p1 + "%)");
-        System.out.println("2: " + a2 + " (" + p2 + "%)");
-        System.out.println("3: " + a3 + " (" + p3 + "%)");
-        System.out.println("4: " + a4 + " (" + p4 + "%)");
-        System.out.println("5: " + a5 + " (" + p5 + "%)");
-        System.out.println("6: " + a6 + " (" + p6 + "%)");
+        String s1 = String.format("%.2f", p1);
+        String s2 = String.format("%.2f", p2);
+        String s3 = String.format("%.2f", p3);
+        String s4 = String.format("%.2f", p4);
+        String s5 = String.format("%.2f", p5);
+        String s6 = String.format("%.2f", p6);
+        
+        System.out.println("1: " + a1 + " (" + s1 + "%)");
+        System.out.println("2: " + a2 + " (" + s2 + "%)");
+        System.out.println("3: " + a3 + " (" + s3 + "%)");
+        System.out.println("4: " + a4 + " (" + s4 + "%)");
+        System.out.println("5: " + a5 + " (" + s5 + "%)");
+        System.out.println("6: " + a6 + " (" + s6 + "%)");
     }
 
 }
