@@ -62,25 +62,55 @@ public class Zufall {
     // 1. Fertig machen
     // 2. Anzahlen als Prozente ausgeben
     public void wuerfelQualitaet() {
-        // Würfeln Sie 102 Mal und 
+        System.out.println("wuerfelQualitaet");
+        int WUERFE = 100_000_000;
+        
+        // Würfeln Sie WUERFE Mal und 
         // 1) Geben Sie die gewürfelten Zahlen aus
         // 2) Zaehlen Sie mit, wie oft jede Zahl gewuerfelt wurde
         Random generator = new Random();
-        int einsen = 0;
+        int a1 = 0;
+        int a2 = 0;
+        int a3 = 0;
+        int a4 = 0;
+        int a5 = 0;
+        int a6 = 0;
         int i = 0;
 
-        while (i < 102) {
+        while (i < WUERFE) {
             int gewuerfelt = generator.nextInt(6) + 1;
-            System.out.println(gewuerfelt);
+            // System.out.println(gewuerfelt);
 
             if (gewuerfelt == 1) {
-                einsen = einsen + 1;
+                a1 += 1;
+            } else if (gewuerfelt == 2) {
+                a2 += 1;
+            } else if (gewuerfelt == 3) {
+                a3 += 1;
+            } else if (gewuerfelt == 4) {
+                a4 += 1;
+            } else if (gewuerfelt == 5) {
+                a5 += 1;
+            } else {
+                a6 += 1;
             }
             
             i = i + 1;
         }    
         
-        System.out.println("Einsen: " + einsen);
+        double p1 = 100.0 * a1 / WUERFE;
+        double p2 = 100.0 * a2 / WUERFE;
+        double p3 = 100.0 * a3 / WUERFE;
+        double p4 = 100.0 * a4 / WUERFE;
+        double p5 = 100.0 * a5 / WUERFE;
+        double p6 = 100.0 * a6 / WUERFE;
+        
+        System.out.println("1: " + a1 + " (" + p1 + "%)");
+        System.out.println("2: " + a2 + " (" + p2 + "%)");
+        System.out.println("3: " + a3 + " (" + p3 + "%)");
+        System.out.println("4: " + a4 + " (" + p4 + "%)");
+        System.out.println("5: " + a5 + " (" + p5 + "%)");
+        System.out.println("6: " + a6 + " (" + p6 + "%)");
     }
 
 }
