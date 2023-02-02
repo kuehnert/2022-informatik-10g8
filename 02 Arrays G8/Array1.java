@@ -15,16 +15,17 @@ public class Array1 {
 
         // Initialisierung
         zahl = 5;
-        zahlen = new int[]{13, 7, 5, 9, 20};
+        zahlen = new int[]{13, 7, 5, 9, 20, 111};
 
         // Lesender Zugriff
         // System.out.println(      zahl     );
 
         // Wenn man den Namen des Arrays ausgibt, bekommt
         // man nur seine Speicheradresse
-        // System.out.println(     zahlen    );
+        System.out.println( "zahlen: " + zahlen );
 
         System.out.println("Justus' Zahlen");
+        System.out.println("Es sind " + zahlen.length + " Zahlen im Array");
         druckeArray(zahlen);
 
         // 8, 2, 4, 6, 21
@@ -37,11 +38,11 @@ public class Array1 {
         druckeArray(zahlen);
 
         // Erhöhe den Wert aller Elemente um eins
-        zahlen[0] = zahlen[0] + 1; 
-        zahlen[1] = zahlen[1] + 1; 
-        zahlen[2] = zahlen[2] + 1; 
-        zahlen[3] = zahlen[3] + 1; 
-        zahlen[4] = zahlen[4] + 1; 
+        int i = 0;
+        while (i < zahlen.length) {
+            zahlen[i] = zahlen[i] + 1;
+            i = i + 1;
+        }
 
         System.out.println("Um Eins erhöht");
         druckeArray(zahlen);
@@ -49,18 +50,21 @@ public class Array1 {
 
     public void array2() {
         int[] maxZahlen;
-        maxZahlen = new int[]{3, 7, 18, -1, -1};
+        maxZahlen = new int[]{3, 7, 18};
         druckeArray(maxZahlen);
     }
 
     /**
      * Ersetzen Sie die 5 Befehle durch eine while-Schleife
      */
+    // f(x) = 2x
     public void druckeArray(int[] a) {
-        System.out.println(  a[0]  );
-        System.out.println(  a[1]  );
-        System.out.println(  a[2]  );
-        System.out.println(  a[3]  );
-        System.out.println(  a[4]  );
+        System.out.println( "a: " + a );
+
+        int i = 0;
+        while (i < a.length) {
+            System.out.println(  a[i]  );
+            i = i + 1;
+        }
     }
 }
