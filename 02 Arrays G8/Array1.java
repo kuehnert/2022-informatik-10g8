@@ -55,16 +55,51 @@ public class Array1 {
     }
 
     /**
-     * Ersetzen Sie die 5 Befehle durch eine while-Schleife
+     * 2 Aufgaben:
+     * 1a. Machen Sie eine Kopie und geben die Zahlen verdoppelt aus
+     * 1b. Eine Methode, die jeden Wert in einem Array verdoppelt
+     *     {4, 7, 1} => {8, 14, 2}
+     * 2. Machen Sie eine 2. Kopie und geben das Array in der Form aus:
+     *    3, 7, 18
      */
     // f(x) = 2x
     public void druckeArray(int[] a) {
         System.out.println( "a: " + a );
 
-        int i = 0;
-        while (i < a.length) {
+        for (int i = 0; i < a.length; i = i + 1) {
             System.out.println(  a[i]  );
-            i = i + 1;
+        }
+
+        System.out.println( "-------------------------" );
+    }
+
+    public void druckeArrayVerdoppelt(int[] a) {
+        for (int i = 0; i < a.length; i = i + 1) {
+            System.out.println(  a[i] * 2 );
         }
     }
+
+    public void verdoppeln(int[] a) {
+        for (int i = 0; i < a.length; i = i + 1) {
+            a[i] = a[i] * 2;
+        }
+    }
+
+    public void testeVerdoppelt() {
+        int[] z1 = new int[]{5, 8, 7, 3};
+
+        druckeArrayVerdoppelt(z1);
+        druckeArrayVerdoppelt(z1);
+        druckeArrayVerdoppelt(z1);
+
+        int[] z2 = new int[]{5, 8, 7, 3};
+        verdoppeln(z2);
+        druckeArray(z2);
+        verdoppeln(z2);
+        druckeArray(z2);
+        verdoppeln(z2);
+        druckeArray(z2);
+    }
+
+    
 }
