@@ -52,6 +52,12 @@ public class Array1 {
         int[] maxZahlen;
         maxZahlen = new int[]{3, 7, 18};
         druckeArray(maxZahlen);
+
+        maxZahlen = new int[]{3};
+        druckeArray(maxZahlen);
+
+        maxZahlen = new int[]{};
+        druckeArray(maxZahlen);
     }
 
     /**
@@ -63,13 +69,22 @@ public class Array1 {
      *    3, 7, 18
      */
     // f(x) = 2x
+    /* 
+     *       ---------------
+     *       | 0 |  1 |  2 |
+     *       ├───┼----------
+     *       | 7 | 14 | 21 |
+     *       ---------------
+     *       https://en.wikipedia.org/wiki/Box-drawing_character
+     */
     public void druckeArray(int[] a) {
-        System.out.println( "a: " + a );
-
-        for (int i = 0; i < a.length; i = i + 1) {
-            System.out.println(  a[i]  );
+        if (a.length > 0) {
+            for (int i = 0; i < a.length - 1; i = i + 1) {
+                System.out.print(  a[i] + ", "  );
+            }
+            System.out.println(a[a.length - 1]);
         }
-
+        
         System.out.println( "-------------------------" );
     }
 
@@ -101,5 +116,4 @@ public class Array1 {
         druckeArray(z2);
     }
 
-    
 }
