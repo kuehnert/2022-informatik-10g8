@@ -109,6 +109,10 @@ public class Array1 {
         System.out.println( " |" );
 
         // 2. Horizontale Linie |---|---|---|
+        for (int i = 0; i < a.length; i = i + 1) {
+            System.out.print(  "-|----");
+        }
+        System.out.println( "-|" );
 
         // 3. Drucke die Elemente mit | getrennt
         for (int i = 0; i < a.length; i = i + 1) {
@@ -117,7 +121,7 @@ public class Array1 {
         }
         System.out.println( " |" );
 
-        System.out.println( "\n###########################\n" );
+        System.out.println( "\n---\n" );
     }
 
     public void druckeArrayVerdoppelt(int[] a) {
@@ -151,10 +155,50 @@ public class Array1 {
         druckeArrayTab(z3);
     }
 
-    public void aufgabe() {
-        int[] zahlen = new int[]{0, 0, 0, 0, 0, 0, 0, 0 };
+    public void testeZahlenreihe() {
+        zahlenreihe(10, 17);
+        zahlenreihe(20, 6);
+    }
+
+    public void zahlenreihe(int anzahl, int basis) {
+        int[] zahlen; // Deklaration
+        zahlen = new int[anzahl]; // Initialisierung
 
         // {6, 12, 18, 24, 30, 36, 42, 48 };
+        for (int i = 0; i < anzahl; i = i + 1) {
+            zahlen[i] = basis * (i + 1);
+        }
+
+        druckeArrayTab(zahlen);
+    }
+
+    /*
+     * 1. Erstelle ein Array mit <anzahl> Quadratzahlen
+     */
+    public void reiheQuadratzahlen(int anzahl) {
+        int[] zahlen; // Deklaration
+        zahlen = new int[anzahl]; // Initialisierung
+
+        for (int i = 0; i < anzahl; i = i + 1) {
+            zahlen[i] = anzahl * anzahl;
+        }
+
+        druckeArrayTab(zahlen);
+    }
+
+    /*
+     * 2. Erstelle ein Array mit <anzahl> 2er-Potenzen
+     *    1, 2, 4, 8, 16, 32, 
+     */
+    public void reihePotenzen(int anzahl) {
+        int[] zahlen; // Deklaration
+        zahlen = new int[anzahl]; // Initialisierung
+
+        for (int i = 0; i < anzahl; i = i + 1) {
+            zahlen[i] = -1000;
+        }
+
+        druckeArrayTab(zahlen);
     }
 
 }
