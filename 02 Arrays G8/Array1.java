@@ -84,8 +84,40 @@ public class Array1 {
             }
             System.out.println(a[a.length - 1]);
         }
-        
+
         System.out.println( "-------------------------" );
+    }
+
+    public void druckeZahl(int zahl) {
+        if (zahl < 10) {
+            // 2 Leerzeichen: zahl ist kleiner als 10
+            System.out.print("  " + zahl);
+        } else if (zahl < 100) {
+            // 1 Leerzeichen
+            System.out.print(" " + zahl);
+        } else {
+            System.out.print(zahl);
+        }
+    }
+
+    public void druckeArrayTab(int[] a) {
+        // 1. Drucke die Indizes mit | getrennt
+        for (int i = 0; i < a.length; i = i + 1) {
+            System.out.print(  " | " );
+            druckeZahl(i);
+        }
+        System.out.println( " |" );
+
+        // 2. Horizontale Linie |---|---|---|
+
+        // 3. Drucke die Elemente mit | getrennt
+        for (int i = 0; i < a.length; i = i + 1) {
+            System.out.print(  " | " );
+            druckeZahl(a[i]);
+        }
+        System.out.println( " |" );
+
+        System.out.println( "\n###########################\n" );
     }
 
     public void druckeArrayVerdoppelt(int[] a) {
@@ -103,17 +135,26 @@ public class Array1 {
     public void testeVerdoppelt() {
         int[] z1 = new int[]{5, 8, 7, 3};
 
-        druckeArrayVerdoppelt(z1);
-        druckeArrayVerdoppelt(z1);
-        druckeArrayVerdoppelt(z1);
+        // druckeArrayVerdoppelt(z1);
+        // druckeArrayVerdoppelt(z1);
+        // druckeArrayVerdoppelt(z1);
 
         int[] z2 = new int[]{5, 8, 7, 3};
         verdoppeln(z2);
-        druckeArray(z2);
+        druckeArrayTab(z2);
         verdoppeln(z2);
-        druckeArray(z2);
+        druckeArrayTab(z2);
         verdoppeln(z2);
-        druckeArray(z2);
+        druckeArrayTab(z2);
+
+        int[] z3 = new int[]{6,4,3,7,3,5,433,673,24,234};
+        druckeArrayTab(z3);
+    }
+
+    public void aufgabe() {
+        int[] zahlen = new int[]{0, 0, 0, 0, 0, 0, 0, 0 };
+
+        // {6, 12, 18, 24, 30, 36, 42, 48 };
     }
 
 }
