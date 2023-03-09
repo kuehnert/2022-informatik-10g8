@@ -1,4 +1,10 @@
 public class Array1 {
+    private ArrayOperationen operationen;
+    
+    public Array1() {
+        operationen = new ArrayOperationen();
+    }
+
     /*
      * Ein Array in Java ist eine Datenstruktur, die es ermöglicht, 
      * mehrere Werte des gleichen Datentyps in einer einzigen
@@ -26,7 +32,7 @@ public class Array1 {
 
         System.out.println("Justus' Zahlen");
         System.out.println("Es sind " + zahlen.length + " Zahlen im Array");
-        druckeArray(zahlen);
+        operationen.druckeArray(zahlen);
 
         // 8, 2, 4, 6, 21
         zahlen[0] = 8;
@@ -35,7 +41,7 @@ public class Array1 {
         zahlen[3] = 6;
         zahlen[4] = 21;
         System.out.println("Raffas Zahlen");
-        druckeArray(zahlen);
+        operationen.druckeArray(zahlen);
 
         // Erhöhe den Wert aller Elemente um eins
         int i = 0;
@@ -45,19 +51,19 @@ public class Array1 {
         }
 
         System.out.println("Um Eins erhöht");
-        druckeArray(zahlen);
+        operationen.druckeArray(zahlen);
     }
 
     public void array2() {
         int[] maxZahlen;
         maxZahlen = new int[]{3, 7, 18};
-        druckeArray(maxZahlen);
+        operationen.druckeArray(maxZahlen);
 
         maxZahlen = new int[]{3};
-        druckeArray(maxZahlen);
+        operationen.druckeArray(maxZahlen);
 
         maxZahlen = new int[]{};
-        druckeArray(maxZahlen);
+        operationen.druckeArray(maxZahlen);
     }
 
     /**
@@ -69,60 +75,6 @@ public class Array1 {
      *    3, 7, 18
      */
     // f(x) = 2x
-    /* 
-     *       ---------------
-     *       | 0 |  1 |  2 |
-     *       ├───┼----------
-     *       | 7 | 14 | 21 |
-     *       ---------------
-     *       https://en.wikipedia.org/wiki/Box-drawing_character
-     */
-    public void druckeArray(int[] a) {
-        if (a.length > 0) {
-            for (int i = 0; i < a.length - 1; i = i + 1) {
-                System.out.print(  a[i] + ", "  );
-            }
-            System.out.println(a[a.length - 1]);
-        }
-
-        System.out.println( "-------------------------" );
-    }
-
-    public void druckeZahl(int zahl) {
-        if (zahl < 10) {
-            // 2 Leerzeichen: zahl ist kleiner als 10
-            System.out.print("  " + zahl);
-        } else if (zahl < 100) {
-            // 1 Leerzeichen
-            System.out.print(" " + zahl);
-        } else {
-            System.out.print(zahl);
-        }
-    }
-
-    public void druckeArrayTab(int[] a) {
-        // 1. Drucke die Indizes mit | getrennt
-        for (int i = 0; i < a.length; i = i + 1) {
-            System.out.print(  " | " );
-            druckeZahl(i);
-        }
-        System.out.println( " |" );
-
-        // 2. Horizontale Linie |---|---|---|
-        for (int i = 0; i < a.length; i = i + 1) {
-            System.out.print(  "-|----");
-        }
-        System.out.println( "-|" );
-
-        // 3. Drucke die Elemente mit | getrennt
-        for (int i = 0; i < a.length; i = i + 1) {
-            System.out.print(  " | " );
-            druckeZahl(a[i]);
-        }
-        System.out.println( " |" );
-
-        System.out.println( "\n---\n" );
-    }
 
     public void druckeArrayVerdoppelt(int[] a) {
         for (int i = 0; i < a.length; i = i + 1) {
@@ -145,18 +97,14 @@ public class Array1 {
 
         int[] z2 = new int[]{5, 8, 7, 3};
         verdoppeln(z2);
-        druckeArrayTab(z2);
+
+        operationen.druckeArrayTab(z2);
         verdoppeln(z2);
-        druckeArrayTab(z2);
+        operationen.druckeArrayTab(z2);
         verdoppeln(z2);
-        druckeArrayTab(z2);
+        operationen.druckeArrayTab(z2);
 
         int[] z3 = new int[]{6,4,3,7,3,5,433,673,24,234};
-        druckeArrayTab(z3);
-    }
-
-    public void testeZahlenreihe() {
-        zahlenreihe(10, 17);
-        zahlenreihe(20, 6);
+        operationen.druckeArrayTab(z3);
     }
 }
