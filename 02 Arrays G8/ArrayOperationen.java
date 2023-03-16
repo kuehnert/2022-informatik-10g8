@@ -69,5 +69,8 @@ public class ArrayOperationen {
         return s / zahlen.length;
     }
     
-    
+    // Aufgabenideen
+    // 1. Bestimme die größte Zahl im Array
+    // 2. Bestimme die zweitgrößte Zahl im Array
+    // 3. Bestimmte, wie viele Elemente im Array > 10 sind
 }
