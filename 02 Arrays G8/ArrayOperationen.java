@@ -54,9 +54,20 @@ public class ArrayOperationen {
         System.out.println( "\n---\n" );
     }
     
-    public int addiereZahlen(int[] zahlen) {
+    public long summe(int[] zahlen) {
+        long summe = 0;
         
+        for (int i = 0; i < zahlen.length; i = i + 1) {
+            summe = summe + zahlen[i];
+        }
         
-        return -1;
+        return summe;
     }
+    
+    public double mittelwert(int[] zahlen) {
+        double s = summe(zahlen);
+        return s / zahlen.length;
+    }
+    
+    
 }

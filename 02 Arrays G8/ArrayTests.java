@@ -1,7 +1,7 @@
 public class ArrayTests {
     private ArrayGeneratoren generator;
     private ArrayOperationen operationen;
-    
+
     public ArrayTests() {
         System.out.println("Erzeuge Ops & Gen");
         generator = new ArrayGeneratoren();
@@ -21,4 +21,25 @@ public class ArrayTests {
         zahlen = generator.reihePotenzen3(700);
         operationen.druckeArray(zahlen);   
     }
+
+    public void testeSumme() {
+        int[] a = {30, 7, 12, 3};
+        long s = operationen.summe(a);
+        System.out.println(s + " <=> 52");
+
+        a = new int[]{1000};
+        s = operationen.summe(a);
+        System.out.println(s + " <=> 1000");
+
+        a = new int[]{};
+        s = operationen.summe(a);
+        System.out.println(s + " <=> 0");
+    }
+    
+    public void testeMittelwert() {
+        int[] a = {1, 2};
+        double mw = operationen.mittelwert(a);
+        System.out.println(mw + " <=> 1.5");
+    }
+
 }
