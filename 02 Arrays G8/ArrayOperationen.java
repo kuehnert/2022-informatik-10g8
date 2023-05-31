@@ -99,35 +99,55 @@ public class ArrayOperationen {
         return new int[]{start, ende - start + 1};
     }
 
-    String[] ENGLISH_NUMBERS = {
-            "zero", "one", "two", "three", "four", "five", "six", "seven",
+    String[] NUMBERS = {
+            "", "one", "two", "three", "four", "five", "six", "seven",
             "eight", "nine", "ten", "eleven", "twelve", "thirteen",
             "fourteen", "fifteen", "sixteen", "seventeen", "eighteen",
             "nineteen"
         };
-    
-        String[] TENS = {
+
+    String[] TENS = {
             null, null, "twenty", "thirty", "forty", "fifty", 
             "sixty", "seventy", "eighty", "ninety"
         };
 
+    String[] THOUSANDS = {
+            "", " thousand ", " million ", " billion ", " trillion "
+        };
+
     public String toEnglish(int zahl) {
-        if (zahl < ENGLISH_NUMBERS.length) {
-            return ENGLISH_NUMBERS[zahl];
-        } else if (zahl < 100) {
-            int letzte = zahl % 10;
-            int vorletzte = zahl / 10 % 10;
-            
-            if (letzte == 0) {
-                return TENS[vorletzte];
-            } else {
-                return TENS[vorletzte] + "-" + ENGLISH_NUMBERS[letzte];
-            }
+        // 74.074.074.074.074
+        if (zahl == 0) {
+            return "nought"; // Beendet Methode
         }
 
-        return "ERROR: Number too large";
-    }
+        String ausgabe = "";
+        int tausender = 0;
 
-    
-    
+        while (zahl > 0) {
+            String temp = "";
+            int einer = zahl % 10;
+            int zehner = zahl / 10 % 10;
+            int hunderter = zahl / 100 % 10;
+            zahl = zahl / 1000;
+
+            if (hunderter > 0) {
+                temp += NUMBERS[hunderter] + " hundred ";
+            }
+
+            if (zehner < 2) {
+                temp += NUMBERS[zehner * 10 + einer];
+            } else {
+                temp += TENS[zehner] + "-" + NUMBERS[einer];
+            }
+
+            if (temp.length() > 0) {
+                ausgabe = temp + THOUSANDS[tausender] + ausgabe;
+            }
+            
+            tausender += 1;
+        }
+
+        return ausgabe;
+    }
 }

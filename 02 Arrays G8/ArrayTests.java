@@ -126,8 +126,6 @@ public class ArrayTests {
 
         zahl = 1_987_654_321;
         ergebnis = operationen.toEnglish(zahl);
-        System.out.println("one million <=> " + ergebnis);
+        System.out.println("one billion nine hundred eighty-seven million six hundred fifty-four thousand three hundred twenty-one <=> " + ergebnis);
     }
-
-    
 }
